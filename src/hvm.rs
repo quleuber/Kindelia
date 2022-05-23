@@ -2360,10 +2360,13 @@ fn hash(name: &str) -> u128 {
 }
 
 fn is_name_char(chr: char) -> bool {
-  return chr == '_' || chr == '.'
-      || chr >= 'a' && chr <= 'z'
-      || chr >= 'A' && chr <= 'Z'
-      || chr >= '0' && chr <= '9';
+  match chr {
+    '.' | '_' => true,
+    '0'..='9' => true,
+    'a'..='z' => true,
+    'A'..='Z' => true,
+    _         => false,
+  }
 }
 
 fn read_char(code: &str, chr: char) -> (&str, ()) {
