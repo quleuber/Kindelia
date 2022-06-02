@@ -1,0 +1,8 @@
+fun (Add a b) {
+  (Add ~ ~) = #12345
+}
+  = #0
+
+run {
+  !done (Add #3 #5)
+}
